@@ -1,0 +1,11 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+PATH=/usr/local/rvm/bin:/home/vagrant/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+export PATH
+
+# User specific aliases and functions
