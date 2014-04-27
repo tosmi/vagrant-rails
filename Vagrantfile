@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.define "dev" do |dev|
+  config.vm.define "railsdev" do |dev|
     dev.vm.box = "centos-65-x64-virtualbox-puppet"
     dev.vm.hostname = 'railsdev'
     dev.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-puppet.box"
