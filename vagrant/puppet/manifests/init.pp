@@ -10,19 +10,19 @@ class railsdev {
   rvm_system_ruby { 'ruby-2.1.1':
     ensure => present,
     default_use => true,
-  } 
+  }
 
   rvm_gemset {
     'ruby-2.1.1@railsdev':
       ensure  => present,
       require => Rvm_system_ruby['ruby-2.1.1'];
-  } 
+  }
 
   rvm_gem {
     'ruby-2.1.1@railsdev/rails':
       ensure  => '4.1',
       require => Rvm_gemset['ruby-2.1.1@railsdev'];
-  }  
+  }
 
   require postgresql::server
   require postgresql::client
@@ -33,7 +33,15 @@ class railsdev {
   postgresql::server::db { 'railsdev':
     user     => 'railsdev',
     password => postgresql_password('railsdev', 'railsdev'),
-  } 
+  }
+
+  package { 'sqlite-devel':
+    ensure => 'installed',
+  }
+
+  package { 'nodejs':
+    ensure => 'installed',
+  }
 }
 
 include railsdev
