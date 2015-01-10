@@ -7,21 +7,21 @@ class railsdev {
   class { 'rvm':
     system_users  => ['vagrant'],
   } ->
-  rvm_system_ruby { 'ruby-2.1.1':
+  rvm_system_ruby { 'ruby-2.2.0':
     ensure => present,
     default_use => true,
   }
 
   rvm_gemset {
-    'ruby-2.1.1@railsdev':
+    'ruby-2.2.0@railsdev':
       ensure  => present,
-      require => Rvm_system_ruby['ruby-2.1.1'];
+      require => Rvm_system_ruby['ruby-2.2.0'];
   }
 
   rvm_gem {
-    'ruby-2.1.1@railsdev/rails':
-      ensure  => '4.1',
-      require => Rvm_gemset['ruby-2.1.1@railsdev'];
+    'ruby-2.2.0@railsdev/rails':
+      ensure  => '4.2',
+      require => Rvm_gemset['ruby-2.2.0@railsdev'];
   }
 
   require postgresql::server
