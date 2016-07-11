@@ -10,3 +10,6 @@
 [submodule "vagrant/puppet/modules/concat"]
 	path = vagrant/puppet/modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat.git
+[submodule "puppet/environments/vagrant/modules/gnupg"]
+	path = puppet/environments/vagrant/modules/gnupg
+	url = https://github.com/n1tr0g/golja-gnupg
