@@ -43,9 +43,8 @@ class railsdev {
     mirrorlist     => "https://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=\$basearch",
     baseurl        => 'absent',
     failovermethod => 'priority',
-    enabled        => true,
-    gpgcheck       => false,
-    gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7",
+    enabled        => '1',
+    gpgcheck       => '0',
     descr          => "Extra Packages for Enterprise Linux 7 - \$basearch",
   } ->
   package { 'nodejs':
