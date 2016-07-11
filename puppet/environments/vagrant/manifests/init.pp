@@ -40,7 +40,7 @@ class railsdev {
   }
 
   yumrepo { 'epel':
-    mirrorlist     => 'https://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=\$basearch'
+    mirrorlist     => "https://mirrors.fedoraproject.org/mirrorlist?repo=epel-7&arch=\$basearch",
     baseurl        => 'absent',
     failovermethod => 'priority',
     enabled        => true,
@@ -51,8 +51,6 @@ class railsdev {
   package { 'nodejs':
     ensure => 'installed',
   }
-
-  
 }
 
 include railsdev
