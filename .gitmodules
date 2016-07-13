@@ -1,0 +1,15 @@
+[submodule "puppet/environments/vagrant/modules/stdlib"]
+	path = puppet/environments/vagrant/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "puppet/environments/vagrant/modules/rvm"]
+	path = puppet/environments/vagrant/modules/rvm
+	url = https://github.com/maestrodev/puppet-rvm
+[submodule "puppet/environments/vagrant/modules/postgresql"]
+	path = puppet/environments/vagrant/modules/postgresql
+	url = https://github.com/puppetlabs/puppetlabs-postgresql
+[submodule "puppet/environments/vagrant/modules/concat"]
+	path = puppet/environments/vagrant/modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat
+[submodule "puppet/environments/vagrant/modules/gnupg"]
+	path = puppet/environments/vagrant/modules/gnupg
+	url = https://github.com/n1tr0g/golja-gnupg
