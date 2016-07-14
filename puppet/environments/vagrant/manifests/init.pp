@@ -50,6 +50,11 @@ class railsdev {
   package { 'nodejs':
     ensure => 'installed',
   }
+
+  service { 'firewalld':
+    ensure => 'stopped',
+    enable => false,
+  }
 }
 
 include railsdev
