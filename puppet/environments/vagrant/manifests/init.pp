@@ -26,6 +26,7 @@ class railsdev {
 
   require postgresql::server
   require postgresql::client
+  require postgresql::lib::devel
 
   postgresql::server::role { 'railsdev':
     password_hash => postgresql_password('railsdev', 'railsdev'),
