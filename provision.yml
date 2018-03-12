@@ -1,0 +1,35 @@
+---
+- hosts: railsdev
+  become: true
+  gather_facts: no
+  vars:
+    scl_ruby: rh-ruby23
+    scl_pg: rh-postgresql96
+  tasks:
+    - name: install required packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - centos-release-scl
+        - "{{ scl_ruby }}"
+        - "{{ scl_ruby }}-ruby-devel"
+        - git
+        - gcc
+        - gcc-c++
+        - make
+        - zlib-devel
+        - sqlite-devel
+        - "{{ scl_pg }}-postgresql-devel"
+
+    - name: enable scl ruby for vagrant user
+      lineinfile:
+        path: /home/vagrant/.bashrc
+        line: "source scl_source enable {{ scl_ruby }} {{ scl_pg }}"
+        owner: vagrant
+        group: vagrant
+
+    - name: install bundler gem
+      command: scl enable {{ scl_ruby }} 'gem install bundler'
+      args:
+        creates: /opt/rh/{{ scl_ruby }}/root/usr/local/bin/bundler
