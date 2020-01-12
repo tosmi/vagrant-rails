@@ -3,24 +3,12 @@
   become: true
   gather_facts: no
   vars:
-    scl_ruby: rh-ruby23
+    scl_ruby: rh-ruby25
     scl_pg: rh-postgresql96
   tasks:
     - name: install required packages
       yum:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - centos-release-scl
-        - "{{ scl_ruby }}"
-        - "{{ scl_ruby }}-ruby-devel"
-        - git
-        - gcc
-        - gcc-c++
-        - make
-        - zlib-devel
-        - sqlite-devel
-        - "{{ scl_pg }}-postgresql-devel"
+        name: [ 'centos-release-scl', "{{ scl_ruby }}", "{{ scl_ruby }}-ruby-devel", 'git', 'gcc', 'gcc-c++', 'make', 'zlib-devel', 'sqlite-devel', "{{ scl_pg }}-postgresql-devel" ]
 
     - name: enable scl ruby for vagrant user
       lineinfile:
