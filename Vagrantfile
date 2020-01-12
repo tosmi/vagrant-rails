@@ -6,10 +6,6 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
   config.vm.synced_folder "./", "/vagrant", type: "sshfs"
 
-  config.vm.provider :libvirt do |libvirt|
-    libvirt.uri = "qemu+tcp://localhost/system"
-  end
-
   config.vm.define "railsdev" do |dev|
     dev.vm.box = "centos/7"
     dev.vm.hostname = 'railsdev'
